@@ -1,0 +1,48 @@
+body { 
+  font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+}
+
+button {
+	background-color: #5B74A8;
+	border: 1px solid #29447E;
+	padding: 2px 6px;
+	color: #fff;
+	border-radius: 5px;
+	display: inline;
+	font-size: 16px; 
+	height: 30px;
+}
+
+input {
+  text-align: center;
+  border: solid 1px #5B74A8;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 30px;
+}
+
+form {
+  padding: 2em;
+  text-align: center;
+  background-color: #cdd;
+  border-radius: 5px;
+}
+
+#border {
+  background-color: #dcc;
+  padding: 2em; 
+  margin-top: 1em; 
+  border-radius: 5px
+}
+
+@media screen and (min-device-width: 481px) {
+  body { font-size: 100%; margin: 2em auto; max-width: 800px}
+}
+
+@media only screen and (max-device-width: 480px) {
+  body { font-size: 12pt; margin: 1em; -webkit-text-size-adjust: auto;}
+  input { font-size: 15pt; height: 1.5em; border-radius: 0.25em }
+  button { font-size: 15pt; height: 1.5em; border-radius: 0.25em}
+  form { font-size: 15pt; text-align: center; border-radius: 0.4em}
+  #border { border-radius: 0.4em; font-size: 15pt }
+}

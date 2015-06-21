@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta name = "viewport" content = "width = device-width" />
+	<title>Grade Calculator</title>	
+  <!-- <link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" />  -->
+  <!--[if lt IE 8]>
+    <link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection" />
+  <![endif]-->
+  <link rel="stylesheet" href="main.css" type="text/css" title="Main" charset="utf-8">
+  <script type="text/javascript" language="javascript">
+	//<![CDATA[ 
+	  function calculate() {
+	    school_portion = parseFloat(document.getElementById("school_mark").value) * 0.8;
+	    boundaries = [["90%", 90, 0], ["an A", 86, 0], ["80%", 80, 0], ["a B", 73, 0], ["a C+", 67, 0], ["a C", 60, 0], ["a pass", 50, 0]];
+	    result = "";
+	    for (i = 0; i < 7; i++) {
+	      boundaries[i][2] = (boundaries[i][1] - school_portion) / 0.2;
+	      if ((boundaries[i][2] >= 40) && (boundaries[i][2] <= 100)) {
+	        result += "To get " + boundaries[i][0] + " you need " + boundaries[i][2].toFixed(1) + "%<br />"
+	      }
+	    }
+	    if (result == "") {
+	      result = "Your letter grade will not change as a result of the final."
+	    }
+	    document.getElementById("result").innerHTML = "<div id='border' >" + result + "</div>";
+	    window.scrollTo(0, document.body.scrollHeight);
+	  }
+	  //]]> 
+	</script>
+</head>
+
+<body>
+  <div id="" class="">
+    <div id="header" class="">
+      <h1>Grade Calculator</h1>
+    </div>
+    <div id="content" class="">
+      <p>This calculator calculates the mark you would need on a 20% final to change your letter grade.</p>
+      <p>Enter your current "school" grade, and click "Calculate".</p>
+
+      <form action="javascript:calculate();" class="">
+        <input type="text" size="3" id="school_mark" name="school_mark" onfocus="var self = this;setTimeout(function() {self.select();}, 0);" onkeydown="if (event.keyCode == 13) { document.getElementById('submit_btn').click(); this.blur(); }" />%
+        <button type="submit" id="submit_btn">Calculate</button>
+      </form>
+      
+      <p id="result"></p>
+      
+    </div>
+
+</body>
+</html>
